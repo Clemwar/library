@@ -1,0 +1,30 @@
+{% extends('books.base.html.twig') %}
+
+{% block title %}
+    Auteur : {{ author.firstName }} {{ author.name }}
+{% endblock %}
+
+{% block main %}
+    <section class="author">
+            <article>
+                <header>
+                <h2>Auteur : {{ author.firstName }} {{ author.name }}</h2>
+                </header>
+                <p>Né le {{ author.birthDate |date('d-m-Y') }}</p>
+                {% if author.deathDate %}
+                <p>Décédé le {{ author.deathDate | date('d-m-Y') }}</p>
+                {% endif %}
+                <a href="{{ path('books') }}">Retour aux livres</a>
+            </article>
+            <article>
+                <header>
+                    <h2>Livres associés :</h2>
+                </header>
+                <ul>
+                    {% for livre in books %}
+                    <li><a href="{{ path('book', {'id':livre.id}) }}">{{ livre.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </article>
+    </section>
+{% endblock %}

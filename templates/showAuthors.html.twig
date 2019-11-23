@@ -1,0 +1,19 @@
+{% extends('books.base.html.twig') %}
+
+{% block title %}
+   Les auteurs
+{% endblock %}
+
+{% block main %}
+    <section class="books">
+        {% for author in authors %}
+            <article class="liste">
+                <div class="content">
+                <header>
+                <h2> {{ author.firstName }} {{ author.name }}</h2>
+                <a href="{{ path('author', {'id':author.id}) }}">En savoir plus</a>
+                </div>
+            </article>
+        {% endfor %}
+    </section>
+{% endblock %}

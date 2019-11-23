@@ -1,0 +1,130 @@
+body{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main{
+
+}
+
+header a {
+    text-decoration: none;
+    color:white;
+}
+
+article{
+    width:33%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin :10px;
+    border : 2px solid black;
+    text-align: center;
+}
+
+.books{
+    width:80%;
+    margin:0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+.author{
+    width:80%;
+    margin:0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+header{
+    background-color: chocolate;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header h1{
+    color:white;
+}
+
+nav ul {
+    margin:0;
+    padding: 0;
+    list-style-type: none;
+}
+
+nav ul a {
+    display: inline-block;
+    margin : 0 40px;
+    padding : 20px 0;
+    color:white;
+    text-decoration: none;
+}
+
+nav ul a:hover{
+    background-color: orange;
+}
+
+.OK{
+    color:green;
+}
+
+.NO{
+    color:red;
+}
+
+article h2, article h4, article h5{
+    margin : 5px;
+}
+
+article header{
+    background-color:slategrey;
+    color:white;
+    display: block;
+    padding: 10px;
+}
+
+.liste {
+    border : none;
+    margin:0;
+}
+
+.content{
+    border : 2px solid black;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #999999;
+    padding: 20px;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin-top : 40px;
+    cursor: pointer;
+    width: 250px;
+    border-radius: 63px;
+    align-self: center;
+}
+
+input[type=date] {
+    width : 150px;
+    padding: 0px;
+    box-sizing: border-box;
+}

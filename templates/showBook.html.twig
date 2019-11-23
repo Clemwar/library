@@ -1,0 +1,35 @@
+{% extends('books.base.html.twig') %}
+
+{% block title %}
+    Livre : {{ book.title }}
+{% endblock %}
+
+{% block main %}
+    <section class="books">
+        <article>
+            <header>
+                <h2>{{ book.title }}</h2>
+                <h4>Ecrit par {{ book.author.firstName }} {{ book.author.name }}</h4>
+                <h5>{{ book.style }}</h5>
+            </header>
+            <p>Nombres de pages : {{ book.nbPages }}</p>
+            {% if book.inStock %}
+                <p class="OK"> EN STOCK </p>
+            {% else %}
+                <p class="NO">EN RUPTURE</p>
+            {% endif %}
+        </article>
+
+        <article>
+            <header>
+                <h2>A propos de l'auteur</h2>
+            </header>
+            <h1>Auteur : {{ book.author.firstName }} {{ book.author.name }}</h1>
+            <p>Né le {{ book.author.birthDate |date('d-m-Y') }}</p>
+            {% if book.author.deathDate %}
+                <p>Décédé le {{ book.author.deathDate | date('d-m-Y') }}</p>
+            {% endif %}
+            <a href="{{ path('author', {'id':book.author.id}) }}">Voir l'auteur</a>
+        </article>
+    </section>
+{% endblock %}
