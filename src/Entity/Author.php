@@ -36,6 +36,13 @@ class Author
      */
     private $deathDate;
 
+    public function __construct()
+    {
+        $this->name;
+        $this->firstName;
+        $this->birthDate;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
