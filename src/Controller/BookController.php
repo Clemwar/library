@@ -65,12 +65,11 @@ class BookController extends AbstractController
         $formBuilder
             ->add('title', TextType::class)
             ->add('style', TextType::class)
-            ->add('NbPages', IntegerType::class)
-            ->add('inStock', CheckboxType::class)
+            ->add('NbPages', IntegerType::class, ['required' => false])
+            ->add('inStock', CheckboxType::class, ['required' => false])
             ->add('author', EntityType::class, [
                 'class'   => Author::class,
                 'choice_label' => 'name',
-                'multiple'     => true,
                 'choices' => $book->getAuthor()])
             ->add('save', SubmitType::class);
 
@@ -90,7 +89,7 @@ class BookController extends AbstractController
                 $entityManager->flush();
 
                 // On redirige vers la page de visualisation de l'auteur nouvellement créé
-                return $this->redirectToRoute('author', array('id' => $book->getId()));
+                return $this->redirectToRoute('book', ['id' => $book->getId()]);
             }
         }
 
@@ -101,15 +100,28 @@ class BookController extends AbstractController
             'form' => $form->createView(),
         ));
     }
+
     /**
-     * @Route("/books_by_style/{style}", name="books_by_style")
-     */
+ * @Route("/books_by_style/{style}", name="books_by_style")
+ */
     public function getBooksByStyle($style, BookRepository $bookRepository){
         $books = $bookRepository->getByStyle($style);
 
         return $this->render('showBooksByStyle.html.twig', [
             'books' => $books,
             'style' => $style
+        ]);
+    }
+
+    /**
+     * @Route("/search_by_title/{title}", name="search_by_title")
+     */
+    public function getBookByTitle($title, BookRepository $bookRepository){
+        $books = $bookRepository->getByTitle($title);
+
+        return $this->render('showBooksByTitle.html.twig', [
+            'books' => $books,
+            'title' => $title
         ]);
     }
 }

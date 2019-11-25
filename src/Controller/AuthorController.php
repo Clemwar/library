@@ -102,7 +102,18 @@ class AuthorController extends AbstractController
         return $this->render('/manage_author/new.html.twig', array(
             'form' => $form->createView(),
         ));
+    }
 
+    /**
+     * @Route("/search_by_name/{name}", name="search_by_name")
+     */
+    public function getAuthorByName($name, AuthorRepository $authorRepository){
+        $authors = $authorRepository->getByName($name);
+
+        return $this->render('showAuthorsByName.html.twig', [
+            'authors' => $authors,
+            'name' => $name
+        ]);
     }
 
 }

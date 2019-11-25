@@ -113,7 +113,7 @@ class Book
         return $this->inStock;
     }
 
-    public function setInStock(bool $inStock): self
+    public function setInStock(bool $inStock = null): self
     {
         $this->inStock = $inStock;
 
