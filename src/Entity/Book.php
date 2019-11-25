@@ -46,6 +46,14 @@ class Book
      */
     private $author;
 
+    public function __construct()
+    {
+        $this->title;
+        $this->nbPages;
+        $this->style;
+        $this->inStock;
+        $this->author;
+    }
 
     public function getAuthor()
     {

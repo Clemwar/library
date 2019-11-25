@@ -6,6 +6,7 @@ namespace App\Controller;
 use App\Entity\Author;
 use App\Repository\AuthorRepository;
 use App\Repository\BookRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
@@ -60,7 +61,7 @@ class AuthorController extends AbstractController
     /**
      * @Route("/add_author", name="add_author")
      */
-    public function addAuthor(Request $request)
+    public function addAuthor(Request $request, EntityManagerInterface $entityManager)
     {
         $author = new Author();
         // On crée le FormBuilder grâce au service form factory
@@ -87,12 +88,11 @@ class AuthorController extends AbstractController
             // On vérifie que les valeurs entrées sont correctes
             if ($form->isValid()) {
                 // On enregistre notre objet $author dans la base de données, par exemple
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($author);
-                $em->flush();
+                $entityManager->persist($author);
+                $entityManager->flush();
 
                 // On redirige vers la page de visualisation de l'auteur nouvellement créé
-                return $this->redirectToRoute('author', array('id' => $author->getId()));
+                return $this->redirectToRoute('author', ['id' => $author->getId()]);
             }
         }
 
