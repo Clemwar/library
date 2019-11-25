@@ -7,6 +7,7 @@ Livres
 
 {% block main %}
     <h2 style="text-align: center">Résultats de la recherche : {{ title }}</h2>
+    {% if niet %} <p style="text-align: center;">{{ niet }}</p>{% endif %}
     <section class="books">
         {% for book in books %}
             <article class="liste">

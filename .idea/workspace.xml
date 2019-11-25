@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c8a64260-c916-419d-ac51-f4506fecd5f8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/showAuthorsByName.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/showBooksByTitle.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AuthorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AuthorController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/BookController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BookController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Book.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Book.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/AuthorRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/AuthorRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/BookRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/BookRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/books.base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/books.base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/showAuthorsByName.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/showAuthorsByName.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/showBooksByTitle.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/showBooksByTitle.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -194,6 +190,7 @@
       <workItem from="1574615251233" duration="4037000" />
       <workItem from="1574677614673" duration="4760000" />
       <workItem from="1574684854059" duration="7318000" />
+      <workItem from="1574694018030" duration="2039000" />
     </task>
     <servers />
   </component>

@@ -102,8 +102,8 @@ class BookController extends AbstractController
     }
 
     /**
- * @Route("/books_by_style/{style}", name="books_by_style")
- */
+     * @Route("/books_by_style/{style}", name="books_by_style")
+     */
     public function getBooksByStyle($style, BookRepository $bookRepository){
         $books = $bookRepository->getByStyle($style);
 
@@ -116,12 +116,20 @@ class BookController extends AbstractController
     /**
      * @Route("/search_by_title/{title}", name="search_by_title")
      */
-    public function getBookByTitle($title, BookRepository $bookRepository){
+    public function getBookByTitle($title = null, BookRepository $bookRepository){
         $books = $bookRepository->getByTitle($title);
 
+        if (count($books) >= 1) {
+            return $this->render('showBooksByTitle.html.twig', [
+                'books' => $books,
+                'title' => $title,
+                'niet' => false
+            ]);
+        }
         return $this->render('showBooksByTitle.html.twig', [
             'books' => $books,
-            'title' => $title
+            'title' => $title,
+            'niet' => 'Aucun livre trouvé.'
         ]);
     }
 }

@@ -107,12 +107,22 @@ class AuthorController extends AbstractController
     /**
      * @Route("/search_by_name/{name}", name="search_by_name")
      */
-    public function getAuthorByName($name, AuthorRepository $authorRepository){
+    public function getAuthorByName($name = null, AuthorRepository $authorRepository){
+        //On appelle notre contructeur de requete pour récupérer les auteurs en fonction de la recherche sur le nom
         $authors = $authorRepository->getByName($name);
 
+        if (count($authors) >= 1){
+            //On envoit les données à la vue
+            return $this->render('showAuthorsByName.html.twig', [
+                'authors' => $authors,
+                'name' => $name,
+                'niet' => false
+            ]);
+        }
         return $this->render('showAuthorsByName.html.twig', [
             'authors' => $authors,
-            'name' => $name
+            'name' => $name,
+            'niet' => 'Aucun auteur trouvé'
         ]);
     }
 
