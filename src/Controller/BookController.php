@@ -4,9 +4,11 @@
 namespace App\Controller;
 
 
+use App\Entity\Author;
 use App\Entity\Book;
 use App\Repository\BookRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
@@ -65,9 +67,12 @@ class BookController extends AbstractController
             ->add('style', TextType::class)
             ->add('NbPages', IntegerType::class)
             ->add('inStock', CheckboxType::class)
-            ->add('Author', TextType::class)
-            ->add('save', SubmitType::class)
-        ;
+            ->add('author', EntityType::class, [
+                'class'   => Author::class,
+                'choice_label' => 'name',
+                'multiple'     => true,
+                'choices' => $book->getAuthor()])
+            ->add('save', SubmitType::class);
 
         // À partir du formBuilder, on génère le formulaire
         $form = $formBuilder->getForm();
@@ -95,6 +100,16 @@ class BookController extends AbstractController
         return $this->render('/manage_book/new.html.twig', array(
             'form' => $form->createView(),
         ));
+    }
+    /**
+     * @Route("/books_by_style/{style}", name="books_by_style")
+     */
+    public function getBooksByStyle($style, BookRepository $bookRepository){
+        $books = $bookRepository->getByStyle($style);
 
+        return $this->render('showBooksByStyle.html.twig', [
+            'books' => $books,
+            'style' => $style
+        ]);
     }
 }

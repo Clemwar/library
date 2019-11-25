@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c8a64260-c916-419d-ac51-f4506fecd5f8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/manage_book/new.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/showBooksByStyle.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AuthorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AuthorController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/BookController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BookController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Author.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Author.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Book.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Book.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/books.base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/books.base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/BookRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/BookRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/showBooks.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/showBooks.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -146,14 +144,15 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/manage_book" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\library" />
       <recent name="C:\wamp64\www\library\templates" />
+      <recent name="C:\wamp64\www\library\templates\manage_book" />
+      <recent name="C:\wamp64\www\library" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -189,6 +188,8 @@
       <workItem from="1574504784614" duration="1430000" />
       <workItem from="1574529701092" duration="50000" />
       <workItem from="1574615251233" duration="4037000" />
+      <workItem from="1574677614673" duration="4760000" />
+      <workItem from="1574684854059" duration="2408000" />
     </task>
     <servers />
   </component>
