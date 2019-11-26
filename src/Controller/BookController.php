@@ -69,8 +69,7 @@ class BookController extends AbstractController
             ->add('inStock', CheckboxType::class, ['required' => false])
             ->add('author', EntityType::class, [
                 'class'   => Author::class,
-                'choice_label' => 'name',
-                'choices' => $book->getAuthor()])
+                'choice_label' => 'name'])
             ->add('save', SubmitType::class);
 
         // À partir du formBuilder, on génère le formulaire
@@ -139,7 +138,7 @@ class BookController extends AbstractController
      */
     public function deleteBook(EntityManagerInterface $entityManager, $id, BookRepository $bookRepository){
 
-        $book = $bookRepository->findOneBy(['id'=>$id]);
+        $book = $bookRepository->find($id);
 
         $entityManager->remove($book);
         $entityManager->flush();
@@ -152,7 +151,7 @@ class BookController extends AbstractController
      */
     public function updateBook($id, BookRepository $bookRepository ,Request $request, EntityManagerInterface $entityManager)
     {
-        $book = $bookRepository->findOneBy(['id'=>$id]);
+        $book = $bookRepository->find($id);
 
         // On crée le FormBuilder grâce au service form factory
         $formBuilder = $this->get('form.factory')->createBuilder(FormType::class, $book);

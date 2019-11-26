@@ -134,7 +134,7 @@ class AuthorController extends AbstractController
      */
     public function deleteAuthor(EntityManagerInterface $entityManager, $id, AuthorRepository $authorRepository){
 
-        $author = $authorRepository->findOneBy(['id'=>$id]);
+        $author = $authorRepository->find($id);
 
         $entityManager->remove($author);
         $entityManager->flush();
@@ -171,7 +171,7 @@ class AuthorController extends AbstractController
     public function updateAuthor($id, Request $request, AuthorRepository $authorRepository, EntityManagerInterface $entityManager)
     {
 
-        $author = $authorRepository->findOneBy(['id'=>$id]);
+        $author = $authorRepository->find($id);
         // On crée le FormBuilder grâce au service form factory
         $formBuilder = $this->get('form.factory')->createBuilder(FormType::class, $author);
 
