@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c8a64260-c916-419d-ac51-f4506fecd5f8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AuthorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AuthorController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/BookController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BookController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/books.base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/books.base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/manage/admin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/manage/admin.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/manage/manage_author/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/manage/manage_author/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/manage/manage_book/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/manage/manage_book/new.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -192,7 +198,8 @@
       <workItem from="1574677614673" duration="4760000" />
       <workItem from="1574684854059" duration="7318000" />
       <workItem from="1574694018030" duration="3428000" />
-      <workItem from="1574757441383" duration="4592000" />
+      <workItem from="1574757441383" duration="5906000" />
+      <workItem from="1574766063873" duration="1918000" />
     </task>
     <servers />
   </component>

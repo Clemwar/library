@@ -39,7 +39,7 @@ class BookController extends AbstractController
     }
 
     /**
-     * @Route("/book/{id}", name="book")
+     * @Route("/book/show/{id}", name="book")
      */
     public function showBook($id, BookRepository $bookRepository){
 
@@ -53,9 +53,9 @@ class BookController extends AbstractController
     }
 
     /**
-     * @Route("/add_book", name="add_book")
+     * @Route("/book/add", name="add_book")
      */
-    public function addAuthor(Request $request, EntityManagerInterface $entityManager)
+    public function addBook(Request $request, EntityManagerInterface $entityManager)
     {
         $book = new Book();
         // On crée le FormBuilder grâce au service form factory
@@ -96,9 +96,9 @@ class BookController extends AbstractController
         // À ce stade, le formulaire n'est pas valide car :
         // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
         // - Soit la requête est de type POST, mais le formulaire contient des valeurs invalides, donc on l'affiche de nouveau
-        return $this->render('/manage/manage_book/new.html.twig', array(
-            'form' => $form->createView(),
-        ));
+        return $this->render('/manage/manage_book/new.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
 
     /**
@@ -114,7 +114,7 @@ class BookController extends AbstractController
     }
 
     /**
-     * @Route("/search_by_title", name="search_by_title")
+     * @Route("book/search", name="search_by_title")
      */
     public function getBookByTitle(Request $request, BookRepository $bookRepository){
         $title = $request->get('title');
@@ -135,7 +135,7 @@ class BookController extends AbstractController
     }
 
     /**
-     * @Route("/delete_book/{id}", name="delete_book")
+     * @Route("/book/delete/{id}", name="delete_book")
      */
     public function deleteBook(EntityManagerInterface $entityManager, $id, BookRepository $bookRepository){
 

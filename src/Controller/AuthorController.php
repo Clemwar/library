@@ -21,7 +21,7 @@ class AuthorController extends AbstractController
 
 
     /**
-     * @Route("/authors", name="authors")
+     * @Route("/author/list", name="authors")
      */
 
     //Récupération des données de la table author
@@ -37,7 +37,7 @@ class AuthorController extends AbstractController
     }
 
     /**
-     * @Route ("/author/{id}", name="author")
+     * @Route ("/author/show/{id}", name="author")
      */
 
     //Récupération des données d'un auteur de la table author et de ses livres associés
@@ -59,7 +59,7 @@ class AuthorController extends AbstractController
     }
 
     /**
-     * @Route("/add_author", name="add_author")
+     * @Route("author/add", name="add_author")
      */
     public function addAuthor(Request $request, EntityManagerInterface $entityManager)
     {
@@ -92,20 +92,20 @@ class AuthorController extends AbstractController
                 $entityManager->flush();
 
                 // On redirige vers la page de visualisation de l'auteur nouvellement créé
-                return $this->redirectToRoute('author', ['id' => $author->getId()]);
+                return $this->redirectToRoute('manage_library', ['id' => $author->getId()]);
             }
         }
 
         // À ce stade, le formulaire n'est pas valide car :
         // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
         // - Soit la requête est de type POST, mais le formulaire contient des valeurs invalides, donc on l'affiche de nouveau
-        return $this->render('/manage/manage_author/new.html.twig', array(
-            'form' => $form->createView(),
-        ));
+        return $this->render('/manage/manage_author/new.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
 
     /**
-     * @Route("/search_by_name/{name}", name="search_by_name")
+     * @Route("author/search/{name}", name="search_by_name")
      */
     public function getAuthorByName($name = null, AuthorRepository $authorRepository){
         //On appelle notre contructeur de requete pour récupérer les auteurs en fonction de la recherche sur le nom
@@ -127,7 +127,7 @@ class AuthorController extends AbstractController
     }
 
     /**
-     * @Route("/delete_author/{id}", name="delete_author")
+     * @Route("/author/delete/{id}", name="delete_author")
      */
     public function deleteAuthor(EntityManagerInterface $entityManager, $id, AuthorRepository $authorRepository){
 
