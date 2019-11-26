@@ -36,12 +36,18 @@ class Author
      */
     private $deathDate;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $biography;
+
     public function __construct()
     {
         $this->name;
         $this->firstName;
         $this->birthDate;
         $this->deathDate;
+        $this->biography;
     }
 
     public function getId(): ?int
@@ -93,6 +99,18 @@ class Author
     public function setDeathDate(\DateTimeInterface $deathDate=null): self
     {
         $this->deathDate = $deathDate;
+
+        return $this;
+    }
+
+    public function getBiography()
+    {
+        return $this->biography;
+    }
+
+    public function setBiography(string $biography): self
+    {
+        $this->biography = $biography;
 
         return $this;
     }

@@ -11,6 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -71,8 +72,9 @@ class AuthorController extends AbstractController
         $formBuilder
             ->add('name', TextType::class)
             ->add('firstName', TextType::class)
+            ->add('biography', TextareaType::class, ['required' => false])
             ->add('birthDate', BirthdayType::class)
-            ->add('deathDate', BirthdayType::class, array('required' => false))
+            ->add('deathDate', BirthdayType::class, ['required' => false])
             ->add('save', SubmitType::class)
         ;
 

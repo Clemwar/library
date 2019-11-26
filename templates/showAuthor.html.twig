@@ -14,6 +14,7 @@
                 {% if author.deathDate %}
                 <p>Décédé le {{ author.deathDate | date('d-m-Y') }}</p>
                 {% endif %}
+                <p style="text-align: left">{{ author.biography }}</p>
                 <a href="{{ path('books') }}">Retour aux livres</a>
             </article>
             <article>

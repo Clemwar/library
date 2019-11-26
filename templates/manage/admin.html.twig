@@ -10,6 +10,7 @@
             <tr>
                 <th>nom</th>
                 <th>prénom</th>
+                <th>biographie</th>
                 <th>birthdate</th>
                 <th>deathdate</th>
             </tr>
@@ -19,8 +20,9 @@
             <tr>
                 <td>{{ author.name }}</td>
                 <td>{{ author.firstName }}</td>
+                <td>{{ author.biography | slice(0,10) }}</td>
                 <td>{{ author.birthDate | date('d-m-Y') }}</td>
-                <td>{{ author.deathDate | date('d-m-Y') }}</td>
+                <td>{% if author.deathDate %}{{ author.deathDate | date('d-m-Y') }}{% endif %}</td>
                 <td><a href="">Modifier</a></td>
                 <td><a href="{{ path('delete_author', {'id':author.id}) }}">Supprimer</a></td>
                 <td><a href="{{ path('author', {'id':author.id}) }}">Voir</a></td>
