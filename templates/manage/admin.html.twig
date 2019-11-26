@@ -48,7 +48,7 @@
                     <td>{{ book.nbPages }}</td>
                     <td>{% if book.inStock %}oui{% else %}non{% endif %}</td>
                     <td><a href="">Modifier</a></td>
-                    <td><a href="">Supprimer</a></td>
+                    <td><a href="{{ path('delete_book', {'id':book.id}) }}">Supprimer</a></td>
                     <td><a href="{{ path('book', {'id':book.id}) }}">Voir</a></td>
                 </tr>
             {% endfor %}

@@ -89,7 +89,7 @@ class BookController extends AbstractController
                 $entityManager->flush();
 
                 // On redirige vers la page de visualisation de l'auteur nouvellement créé
-                return $this->redirectToRoute('book', ['id' => $book->getId()]);
+                return $this->redirectToRoute('manage_library');
             }
         }
 
@@ -132,5 +132,18 @@ class BookController extends AbstractController
             'title' => $title,
             'niet' => 'Aucun livre trouvé.'
         ]);
+    }
+
+    /**
+     * @Route("/delete_book/{id}", name="delete_book")
+     */
+    public function deleteBook(EntityManagerInterface $entityManager, $id, BookRepository $bookRepository){
+
+        $book = $bookRepository->findOneBy(['id'=>$id]);
+
+        $entityManager->remove($book);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('manage_library');
     }
 }

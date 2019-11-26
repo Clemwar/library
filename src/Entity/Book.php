@@ -42,7 +42,7 @@ class Book
     /**
      * One Author has many books.
      * @ORM\ManyToOne(targetEntity="Author")
-     * @JoinColumn(name="author_id", referencedColumnName="id")
+     * @JoinColumn(name="author_id", referencedColumnName="id", nullable=false)
      */
     private $author;
 
