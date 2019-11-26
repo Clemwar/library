@@ -39,7 +39,8 @@ article{
 }
 
 table{
-border-collapse: collapse;
+    border-collapse: collapse;
+    width:45%;
 }
 
 th{

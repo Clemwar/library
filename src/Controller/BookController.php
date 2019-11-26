@@ -146,4 +146,52 @@ class BookController extends AbstractController
 
         return $this->redirectToRoute('manage_library');
     }
+
+    /**
+     * @Route("/book/update/{id}", name="update_book")
+     */
+    public function updateBook($id, BookRepository $bookRepository ,Request $request, EntityManagerInterface $entityManager)
+    {
+        $book = $bookRepository->findOneBy(['id'=>$id]);
+
+        // On crée le FormBuilder grâce au service form factory
+        $formBuilder = $this->get('form.factory')->createBuilder(FormType::class, $book);
+
+        // On ajoute les champs de l'entité que l'on veut à notre formulaire
+        $formBuilder
+            ->add('title', TextType::class)
+            ->add('style', TextType::class)
+            ->add('NbPages', IntegerType::class, ['required' => false])
+            ->add('inStock', CheckboxType::class, ['required' => false])
+            ->add('author', EntityType::class, [
+                'class'   => Author::class,
+                'choice_label' => 'name'])
+            ->add('save', SubmitType::class);
+
+        // À partir du formBuilder, on génère le formulaire
+        $form = $formBuilder->getForm();
+
+        // Si la requête est en POST
+        if ($request->isMethod('POST')) {
+            // On fait le lien Requête <-> Formulaire
+            // À partir de maintenant, la variable $author contient les valeurs entrées dans le formulaire par le visiteur
+            $form->handleRequest($request);
+
+            // On vérifie que les valeurs entrées sont correctes
+            if ($form->isValid()) {
+
+                $entityManager->flush();
+
+                // On redirige vers la page de visualisation de l'auteur nouvellement créé
+                return $this->redirectToRoute('manage_library');
+            }
+        }
+
+        // À ce stade, le formulaire n'est pas valide car :
+        // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
+        // - Soit la requête est de type POST, mais le formulaire contient des valeurs invalides, donc on l'affiche de nouveau
+        return $this->render('/manage/manage_book/update.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
 }

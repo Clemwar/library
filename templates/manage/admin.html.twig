@@ -23,8 +23,8 @@
                 <td>{{ author.biography | slice(0,10) }}</td>
                 <td>{{ author.birthDate | date('d-m-Y') }}</td>
                 <td>{% if author.deathDate %}{{ author.deathDate | date('d-m-Y') }}{% endif %}</td>
-                <td><a href="">Modifier</a></td>
-                <td><a href="{{ path('delete_author', {'id':author.id}) }}">Supprimer</a></td>
+                <td><a href="{{ path('update_author', {'id':author.id}) }}">Modifier</a></td>
+                <td><a href="{{ path('delete_author', {'id':author.id}) }}">Suppr.</a></td>
                 <td><a href="{{ path('author', {'id':author.id}) }}">Voir</a></td>
             </tr>
             {% endfor %}
@@ -51,8 +51,8 @@
                     <td>{{ book.style }}</td>
                     <td>{{ book.nbPages }}</td>
                     <td>{% if book.inStock %}oui{% else %}non{% endif %}</td>
-                    <td><a href="">Modifier</a></td>
-                    <td><a href="{{ path('delete_book', {'id':book.id}) }}">Supprimer</a></td>
+                    <td><a href="{{ path('update_book', {'id':book.id}) }}">Modifier</a></td>
+                    <td><a href="{{ path('delete_book', {'id':book.id}) }}">Suppr.</a></td>
                     <td><a href="{{ path('book', {'id':book.id}) }}">Voir</a></td>
                 </tr>
             {% endfor %}
