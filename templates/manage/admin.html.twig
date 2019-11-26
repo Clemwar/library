@@ -21,7 +21,7 @@
                 <td>{{ author.birthDate | date('d-m-Y') }}</td>
                 <td>{{ author.deathDate | date('d-m-Y') }}</td>
                 <td><a href="">Modifier</a></td>
-                <td><a href="">Supprimer</a></td>
+                <td><a href="{{ path('delete_author', {'id':author.id}) }}">Supprimer</a></td>
                 <td><a href="{{ path('author', {'id':author.id}) }}">Voir</a></td>
             </tr>
             {% endfor %}

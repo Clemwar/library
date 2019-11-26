@@ -126,4 +126,17 @@ class AuthorController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/delete_author/{id}", name="delete_author")
+     */
+    public function deleteAuthor(EntityManagerInterface $entityManager, $id, AuthorRepository $authorRepository){
+
+        $author = $authorRepository->findOneBy(['id'=>$id]);
+
+        $entityManager->remove($author);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('manage_library');
+    }
+
 }
