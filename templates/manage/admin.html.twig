@@ -1,0 +1,61 @@
+{% extends ('books.base.html.twig') %}
+
+
+{% block main %}
+    <h1 style="text-align: center">Gérer la bibliothèque</h1>
+    <section class="manage">
+        <table>
+            <thead>
+            <tr>
+                <th>nom</th>
+                <th>prénom</th>
+                <th>birthdate</th>
+                <th>deathdate</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for author in authors %}
+            <tr>
+                <td>{{ author.name }}</td>
+                <td>{{ author.firstName }}</td>
+                <td>{{ author.birthDate | date('d-m-Y') }}</td>
+                <td>{{ author.deathDate | date('d-m-Y') }}</td>
+                <td><a href="">Modifier</a></td>
+                <td><a href="">Supprimer</a></td>
+                <td><a href="{{ path('author', {'id':author.id}) }}">Voir</a></td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td  colspan="7"><a href="{{ path('add_author') }}">Ajouter un auteur</a></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Titre</th>
+                <th>style</th>
+                <th>nb pages</th>
+                <th>en stock</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for book in books %}
+                <tr>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.style }}</td>
+                    <td>{{ book.nbPages }}</td>
+                    <td>{% if book.inStock %}oui{% else %}non{% endif %}</td>
+                    <td><a href="">Modifier</a></td>
+                    <td><a href="">Supprimer</a></td>
+                    <td><a href="{{ path('book', {'id':book.id}) }}">Voir</a></td>
+                </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="7"><a href="{{ path('add_book') }}">Ajouter un livre</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+{% endblock %}

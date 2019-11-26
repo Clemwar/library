@@ -99,7 +99,7 @@ class AuthorController extends AbstractController
         // À ce stade, le formulaire n'est pas valide car :
         // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
         // - Soit la requête est de type POST, mais le formulaire contient des valeurs invalides, donc on l'affiche de nouveau
-        return $this->render('/manage_author/new.html.twig', array(
+        return $this->render('/manage/manage_author/new.html.twig', array(
             'form' => $form->createView(),
         ));
     }

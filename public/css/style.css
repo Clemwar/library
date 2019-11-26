@@ -30,6 +30,30 @@ article{
     flex-wrap: wrap;
 }
 
+.manage{
+    width:90%;
+    margin:0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+table{
+border-collapse: collapse;
+}
+
+th{
+    border : 2px solid black;
+    padding:5px;
+}
+
+td{
+    border: 1px solid black;
+    text-align: center;
+    padding:5px;
+}
+
+
 
 .author{
     width:80%;
@@ -95,7 +119,7 @@ article header{
     border : 2px solid black;
 }
 
-form {
+.book form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -103,14 +127,14 @@ form {
     padding: 20px;
 }
 
-input[type=text] {
+.book input[type=text] {
     width: 100%;
     padding: 12px 20px;
     margin-bottom: 20px;
     box-sizing: border-box;
 }
 
-input[type=button], input[type=submit], input[type=reset] {
+.book input[type=button], .book input[type=submit], .book input[type=reset] {
     background-color: #4CAF50;
     border: none;
     color: white;
@@ -123,7 +147,7 @@ input[type=button], input[type=submit], input[type=reset] {
     align-self: center;
 }
 
-input[type=date] {
+.book input[type=date] {
     width : 150px;
     padding: 0px;
     box-sizing: border-box;

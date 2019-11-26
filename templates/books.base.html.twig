@@ -11,6 +11,10 @@
 <body>
 <header>
     <h1>Bibliothèque</h1>
+    <form action="search_by_title">
+        <input type="text" placeholder="rechercher dans titre" name="title">
+        <input type="submit">
+    </form>
     <nav>
         <ul>
             <a href="{{ path('books') }}">
@@ -19,11 +23,8 @@
             <a href="{{ path('authors') }}">
                 <li>Auteurs</li>
             </a>
-            <a href="{{ path('add_author') }}">
-                <li>Ajouter Auteur</li>
-            </a>
-            <a href="{{ path('add_book') }}">
-                <li>Ajouter Livre</li>
+            <a href="{{ path('manage_library') }}">
+                <li>Gérer bibliothèque</li>
             </a>
         </ul>
     </nav>
