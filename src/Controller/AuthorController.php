@@ -5,6 +5,8 @@ namespace App\Controller;
 
 use App\Entity\Author;
 use App\Entity\Book;
+use App\Form\AuthorType;
+use App\Form\BookType;
 use App\Repository\AuthorRepository;
 use App\Repository\BookRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -66,21 +68,12 @@ class AuthorController extends AbstractController
     public function addAuthor(Request $request, EntityManagerInterface $entityManager)
     {
         $author = new Author();
-        // On crée le FormBuilder grâce au service form factory
-        $formBuilder = $this->get('form.factory')->createBuilder(FormType::class, $author);
 
-        // On ajoute les champs de l'entité que l'on veut à notre formulaire
-        $formBuilder
-            ->add('name', TextType::class)
-            ->add('firstName', TextType::class)
-            ->add('biography', TextareaType::class, ['required' => false])
-            ->add('birthDate', BirthdayType::class)
-            ->add('deathDate', BirthdayType::class, ['required' => false])
-            ->add('save', SubmitType::class)
-        ;
+        // On crée le FormBuilder en appelant le formtype
+        $form = $this->createForm(AuthorType::class, $author);
 
-        // À partir du formBuilder, on génère le formulaire
-        $form = $formBuilder->getForm();
+        //On crée la vue
+        $formView = $form->createView();
 
         // Si la requête est en POST
         if ($request->isMethod('POST')) {
@@ -103,7 +96,7 @@ class AuthorController extends AbstractController
         // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
         // - Soit la requête est de type POST, mais le formulaire contient des valeurs invalides, donc on l'affiche de nouveau
         return $this->render('/manage/manage_author/new.html.twig', [
-            'form' => $form->createView()
+            'form' => $formView
         ]);
     }
 
@@ -172,21 +165,12 @@ class AuthorController extends AbstractController
     {
 
         $author = $authorRepository->find($id);
-        // On crée le FormBuilder grâce au service form factory
-        $formBuilder = $this->get('form.factory')->createBuilder(FormType::class, $author);
 
-        // On ajoute les champs de l'entité que l'on veut à notre formulaire
-        $formBuilder
-            ->add('name', TextType::class)
-            ->add('firstName', TextType::class)
-            ->add('biography', TextareaType::class, ['required' => false])
-            ->add('birthDate', BirthdayType::class)
-            ->add('deathDate', BirthdayType::class, ['required' => false])
-            ->add('save', SubmitType::class)
-        ;
+        // On crée le FormBuilder en appelant le formtype
+        $form = $this->createForm(AuthorType::class, $author);
 
-        // À partir du formBuilder, on génère le formulaire
-        $form = $formBuilder->getForm();
+        //On crée la vue
+        $formView = $form->createView();
 
         // Si la requête est en POST
         if ($request->isMethod('POST')) {
@@ -199,7 +183,7 @@ class AuthorController extends AbstractController
 
                 $entityManager->flush();
 
-                // On redirige vers la page de visualisation de l'auteur nouvellement créé
+                // On redirige vers la page de visualisation de l'auteur modifié
                 return $this->redirectToRoute('manage_library', ['author' => $author]);
             }
         }
@@ -208,7 +192,7 @@ class AuthorController extends AbstractController
         // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
         // - Soit la requête est de type POST, mais le formulaire contient des valeurs invalides, donc on l'affiche de nouveau
         return $this->render('/manage/manage_author/update.html.twig', [
-            'form' => $form->createView()
+            'form' => $formView
         ]);
     }
 

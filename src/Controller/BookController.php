@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use App\Entity\Author;
 use App\Entity\Book;
+use App\Form\BookType;
 use App\Repository\BookRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -58,27 +59,17 @@ class BookController extends AbstractController
     public function addBook(Request $request, EntityManagerInterface $entityManager)
     {
         $book = new Book();
-        // On crée le FormBuilder grâce au service form factory
-        $formBuilder = $this->get('form.factory')->createBuilder(FormType::class, $book);
 
-        // On ajoute les champs de l'entité que l'on veut à notre formulaire
-        $formBuilder
-            ->add('title', TextType::class)
-            ->add('style', TextType::class)
-            ->add('NbPages', IntegerType::class, ['required' => false])
-            ->add('inStock', CheckboxType::class, ['required' => false])
-            ->add('author', EntityType::class, [
-                'class'   => Author::class,
-                'choice_label' => 'name'])
-            ->add('save', SubmitType::class);
+        // On crée le FormBuilder en appelant le formtype
+        $form = $this->createForm(BookType::class, $book);
 
-        // À partir du formBuilder, on génère le formulaire
-        $form = $formBuilder->getForm();
+        //On crée la vue
+        $formView = $form->createView();
 
         // Si la requête est en POST
         if ($request->isMethod('POST')) {
             // On fait le lien Requête <-> Formulaire
-            // À partir de maintenant, la variable $author contient les valeurs entrées dans le formulaire par le visiteur
+            // À partir de maintenant, la variable $book contient les valeurs entrées dans le formulaire par le visiteur
             $form->handleRequest($request);
 
             // On vérifie que les valeurs entrées sont correctes
@@ -87,7 +78,7 @@ class BookController extends AbstractController
                 $entityManager->persist($book);
                 $entityManager->flush();
 
-                // On redirige vers la page de visualisation de l'auteur nouvellement créé
+                // On redirige vers la page de visualisation du livre nouvellement créé
                 return $this->redirectToRoute('manage_library');
             }
         }
@@ -96,7 +87,7 @@ class BookController extends AbstractController
         // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
         // - Soit la requête est de type POST, mais le formulaire contient des valeurs invalides, donc on l'affiche de nouveau
         return $this->render('/manage/manage_book/new.html.twig', [
-            'form' => $form->createView()
+            'form' => $formView
         ]);
     }
 
@@ -153,27 +144,16 @@ class BookController extends AbstractController
     {
         $book = $bookRepository->find($id);
 
-        // On crée le FormBuilder grâce au service form factory
-        $formBuilder = $this->get('form.factory')->createBuilder(FormType::class, $book);
+        // On crée le FormBuilder en appelant le formtype
+        $form = $this->createForm(BookType::class, $book);
 
-        // On ajoute les champs de l'entité que l'on veut à notre formulaire
-        $formBuilder
-            ->add('title', TextType::class)
-            ->add('style', TextType::class)
-            ->add('NbPages', IntegerType::class, ['required' => false])
-            ->add('inStock', CheckboxType::class, ['required' => false])
-            ->add('author', EntityType::class, [
-                'class'   => Author::class,
-                'choice_label' => 'name'])
-            ->add('save', SubmitType::class);
-
-        // À partir du formBuilder, on génère le formulaire
-        $form = $formBuilder->getForm();
+        //On crée la vue
+        $formView = $form->createView();
 
         // Si la requête est en POST
         if ($request->isMethod('POST')) {
             // On fait le lien Requête <-> Formulaire
-            // À partir de maintenant, la variable $author contient les valeurs entrées dans le formulaire par le visiteur
+            // À partir de maintenant, la variable $book contient les valeurs entrées dans le formulaire par le visiteur
             $form->handleRequest($request);
 
             // On vérifie que les valeurs entrées sont correctes
@@ -181,7 +161,7 @@ class BookController extends AbstractController
 
                 $entityManager->flush();
 
-                // On redirige vers la page de visualisation de l'auteur nouvellement créé
+                // On redirige vers la page de visualisation de le livre mis à jour
                 return $this->redirectToRoute('manage_library');
             }
         }
@@ -190,7 +170,7 @@ class BookController extends AbstractController
         // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
         // - Soit la requête est de type POST, mais le formulaire contient des valeurs invalides, donc on l'affiche de nouveau
         return $this->render('/manage/manage_book/update.html.twig', [
-            'form' => $form->createView()
+            'form' => $formView
         ]);
     }
 }
