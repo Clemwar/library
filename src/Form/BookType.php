@@ -28,14 +28,15 @@ class BookType extends AbstractType
                 'label' => 'Genre'
             ])
             ->add('inStock', CheckboxType::class ,[
-                'label' => 'En stock'
+                'label' => 'En stock',
+                'required'=>false
             ])
             ->add('author', EntityType::class, [
                 'class'   => Author::class,
                 'choice_label' => 'name',
                 'label' => 'Auteur'
             ])
-            ->add('save', SubmitType::class)
+            ->add('Enregistrer', SubmitType::class)
         ;
     }
 

@@ -14,7 +14,7 @@ class ManageController extends AbstractController
 
 
     /**
-     * @Route("/manage_library", name="manage_library")
+     * @Route("/admin", name="admin")
      */
     public function manageLibrary(BookRepository $bookRepository, AuthorRepository $authorRepository){
         $books = $bookRepository->findAll();

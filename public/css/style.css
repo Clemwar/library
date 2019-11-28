@@ -128,6 +128,7 @@ article header{
 }
 
 .add form {
+    width : 40%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -135,28 +136,49 @@ article header{
     padding: 20px;
 }
 
-.add input[type=text] {
+.add label{
+    color:white;
+    margin-right : 20px;
+}
+
+.add input[type=text], .add input[type=number] {
     width: 100%;
     padding: 12px 20px;
     margin-bottom: 20px;
     box-sizing: border-box;
 }
 
-.add input[type=button], .book input[type=submit], .book input[type=reset] {
+.add input[type=checkbox]{
+    padding: 12px 20px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.add button{
+    width: 100%;
     background-color: #4CAF50;
     border: none;
     color: white;
-    padding: 16px 32px;
-    text-decoration: none;
-    margin-top : 40px;
+    padding: 16px;
     cursor: pointer;
-    width: 250px;
-    border-radius: 63px;
-    align-self: center;
+    border-radius: 30px;
 }
 
-.add input[type=date] {
-    width : 150px;
-    padding: 0px;
+.add button:hover{
+    background-color: #4CAAAA;
+}
+
+.add select{
+    width: 33%;
+    padding: 12px 20px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.add textarea{
+    width:100%;
+    height: 150px;
+    padding: 12px 20px;
+    margin-bottom: 20px;
     box-sizing: border-box;
 }

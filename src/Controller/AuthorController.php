@@ -63,7 +63,7 @@ class AuthorController extends AbstractController
     }
 
     /**
-     * @Route("author/add", name="add_author")
+     * @Route("/admin/author/add", name="add_author")
      */
     public function addAuthor(Request $request, EntityManagerInterface $entityManager)
     {
@@ -123,7 +123,7 @@ class AuthorController extends AbstractController
     }
 
     /**
-     * @Route("/author/delete/{id}", name="delete_author")
+     * @Route("/admin/author/delete/{id}", name="delete_author")
      */
     public function deleteAuthor(EntityManagerInterface $entityManager, $id, AuthorRepository $authorRepository){
 
@@ -136,7 +136,7 @@ class AuthorController extends AbstractController
     }
 
     /**
-     * @Route("/author/ajoute"), name="ajoute_author"
+     * @Route("/admin/author/ajoute"), name="ajoute_author"
      */
 
     public function ajouteAuthor(EntityManagerInterface $entityManager){
@@ -159,7 +159,7 @@ class AuthorController extends AbstractController
     }
 
     /**
-     * @Route("author/update/{id}", name="update_author")
+     * @Route("/admin/author/update/{id}", name="update_author")
      */
     public function updateAuthor($id, Request $request, AuthorRepository $authorRepository, EntityManagerInterface $entityManager)
     {

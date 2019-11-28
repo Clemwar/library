@@ -35,7 +35,7 @@ class AuthorType extends AbstractType
                 'required'=>false,
                 'label' => 'Biographie'
             ])
-            ->add('save', SubmitType::class)
+            ->add('Enregistrer', SubmitType::class)
         ;
     }
 

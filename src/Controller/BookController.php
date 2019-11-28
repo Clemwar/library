@@ -40,7 +40,7 @@ class BookController extends AbstractController
     }
 
     /**
-     * @Route("/book/show/{id}", name="book")
+     * @Route("book/show/{id}", name="book")
      */
     public function showBook($id, BookRepository $bookRepository){
 
@@ -54,7 +54,7 @@ class BookController extends AbstractController
     }
 
     /**
-     * @Route("/book/add", name="add_book")
+     * @Route("/admin/book/add", name="add_book")
      */
     public function addBook(Request $request, EntityManagerInterface $entityManager)
     {
@@ -125,7 +125,7 @@ class BookController extends AbstractController
     }
 
     /**
-     * @Route("/book/delete/{id}", name="delete_book")
+     * @Route("/admin/book/delete/{id}", name="delete_book")
      */
     public function deleteBook(EntityManagerInterface $entityManager, $id, BookRepository $bookRepository){
 
@@ -138,7 +138,7 @@ class BookController extends AbstractController
     }
 
     /**
-     * @Route("/book/update/{id}", name="update_book")
+     * @Route("/admin/book/update/{id}", name="update_book")
      */
     public function updateBook($id, BookRepository $bookRepository ,Request $request, EntityManagerInterface $entityManager)
     {
