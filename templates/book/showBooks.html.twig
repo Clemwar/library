@@ -8,7 +8,7 @@
                 <header>
                 <h2>{{ book.title }}</h2>
                 <h4>Ecrit par {{ book.author.firstName }} {{ book.author.name }}</h4>
-                <a href="{{ path('book', {'id':book.id}) }}">En savoir plus</a>
+                <a href="{{ path('book', {'id':book.id}) }}" class="lien2">En savoir plus</a>
                 </div>
             </article>
         {% endfor %}

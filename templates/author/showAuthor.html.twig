@@ -24,7 +24,7 @@
                 </header>
                 <ul class="assoc">
                     {% set i = 0 %}
-                    {% for livre in books %}
+                    {% for livre in author.books %}
                         <a href="{{ path('book', {'id':livre.id}) }}" > <li {% if (i % 2 != 0) %}class="gris"{% endif %}>{{ livre.title }}</li></a>
                         {% set i = i + 1 %}
                     {% endfor %}

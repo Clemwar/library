@@ -36,6 +36,10 @@ class BookType extends AbstractType
                 'choice_label' => 'name',
                 'label' => 'Auteur'
             ])
+            ->add('image', TextType::class, [
+                'label' => 'Nom de l\'image',
+                'required'=>false
+            ])
             ->add('Enregistrer', SubmitType::class)
         ;
     }

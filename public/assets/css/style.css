@@ -278,3 +278,7 @@ article header{
 .bio{
     text-align: left;
 }
+
+.lien2:hover{
+    color: orange;
+}

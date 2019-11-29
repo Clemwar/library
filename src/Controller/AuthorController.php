@@ -45,20 +45,14 @@ class AuthorController extends AbstractController
      */
 
     //Récupération des données d'un auteur de la table author et de ses livres associés
-    public  function showAuthor($id, AuthorRepository $authorRepository, BookRepository $bookRepository){
+    public  function showAuthor($id, AuthorRepository $authorRepository){
 
         //Sélection des données de l'auteur voulu via l'id de l'author
         $author = $authorRepository->find($id);
 
-        //Récupération des infos de la table book en fonction de l'id author
-        $booksByAuth = $bookRepository->findBy([
-            'author' => $id
-        ]);
-
         //envoi des données au rendu
         return $this->render('/author/showAuthor.html.twig', [
             'author' => $author,
-            'books' => $booksByAuth,
             'intitule' => 'Auteur'
         ]);
     }

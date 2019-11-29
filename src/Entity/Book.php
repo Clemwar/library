@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\ORM\Mapping\ManyToOne;
 use Doctrine\ORM\Mapping\JoinColumn;
 
 
@@ -41,18 +40,18 @@ class Book
 
     /**
      * One Author has many books.
-     * @ORM\ManyToOne(targetEntity="Author")
-     * @JoinColumn(name="author_id", referencedColumnName="id", nullable=false)
+     * @ORM\ManyToOne(targetEntity="Author", inversedBy="book")
      */
     private $author;
 
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $image;
+
     public function __construct()
     {
-        $this->title;
-        $this->nbPages;
-        $this->style;
-        $this->inStock;
-        $this->author;
+
     }
 
     public function getAuthor()
@@ -119,4 +118,21 @@ class Book
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image): void
+    {
+        $this->image = $image;
+    }
+
 }
