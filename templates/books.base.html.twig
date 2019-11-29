@@ -30,6 +30,7 @@
     </nav>
 </header>
 <main>
+    {% if intitule %} <h1 class="intitule">{{ intitule }}</h1> {% endif %}
     {% block main %}
     {% endblock %}
 </main>

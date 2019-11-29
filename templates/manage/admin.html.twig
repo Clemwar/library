@@ -2,7 +2,7 @@
 
 
 {% block main %}
-    <h1 style="text-align: center">Gérer la bibliothèque</h1>
+    <p class="alert">{% if message %}{{ message }}{% endif %}</p>
     <section class="manage">
         <table>
             <caption>Les auteurs</caption>
@@ -23,13 +23,13 @@
                 <td>{{ author.biography | slice(0,25) }}</td>
                 <td>{{ author.birthDate | date('d-m-Y') }}</td>
                 <td>{% if author.deathDate %}{{ author.deathDate | date('d-m-Y') }}{% endif %}</td>
-                <td><a href="{{ path('update_author', {'id':author.id}) }}">Modifier</a></td>
-                <td><a href="{{ path('delete_author', {'id':author.id}) }}">Suppr.</a></td>
+                <td><a href="{{ path('admin_update_author', {'id':author.id}) }}">Modifier</a></td>
+                <td><a href="{{ path('admin_delete_author', {'id':author.id}) }}">Suppr.</a></td>
                 <td><a href="{{ path('author', {'id':author.id}) }}">Voir</a></td>
             </tr>
             {% endfor %}
             <tr>
-                <td  colspan="8"><a href="{{ path('add_author') }}">Ajouter un auteur</a></td>
+                <td  colspan="8"><a href="{{ path('admin_add_author') }}">Ajouter un auteur</a></td>
             </tr>
             </tbody>
         </table>
@@ -51,13 +51,13 @@
                     <td>{{ book.style }}</td>
                     <td>{{ book.nbPages }}</td>
                     <td>{% if book.inStock %}oui{% else %}non{% endif %}</td>
-                    <td><a href="{{ path('update_book', {'id':book.id}) }}">Modifier</a></td>
-                    <td><a href="{{ path('delete_book', {'id':book.id}) }}">Suppr.</a></td>
+                    <td><a href="{{ path('admin_update_book', {'id':book.id}) }}">Modifier</a></td>
+                    <td><a href="{{ path('admin_delete_book', {'id':book.id}) }}">Suppr.</a></td>
                     <td><a href="{{ path('book', {'id':book.id}) }}">Voir</a></td>
                 </tr>
             {% endfor %}
             <tr>
-                <td colspan="7"><a href="{{ path('add_book') }}">Ajouter un livre</a></td>
+                <td colspan="7"><a href="{{ path('admin_add_book') }}">Ajouter un livre</a></td>
             </tr>
             </tbody>
         </table>

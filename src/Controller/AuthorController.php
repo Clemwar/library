@@ -4,18 +4,11 @@
 namespace App\Controller;
 
 use App\Entity\Author;
-use App\Entity\Book;
 use App\Form\AuthorType;
-use App\Form\BookType;
 use App\Repository\AuthorRepository;
 use App\Repository\BookRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
-use Symfony\Component\Form\Extension\Core\Type\FormType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -29,14 +22,21 @@ class AuthorController extends AbstractController
      */
 
     //Récupération des données de la table author
-    public function showAuthors(AuthorRepository $authorRepository){
+    public function showAuthors(AuthorRepository $authorRepository, Request $request){
 
         //Récupération des données de la table author
         $authors = $authorRepository->findAll();
 
+        $intitule = 'Liste des auteurs';
+
+        if(!empty($request->get('intitule'))){
+            $intitule = $request->get('intitule');
+        }
+
         //envoi des données au rendu
-        return $this->render('showAuthors.html.twig', [
-            'authors' => $authors
+        return $this->render('/author/showAuthors.html.twig', [
+            'authors' => $authors,
+            'intitule' => $intitule
         ]);
     }
 
@@ -56,14 +56,15 @@ class AuthorController extends AbstractController
         ]);
 
         //envoi des données au rendu
-        return $this->render('showAuthor.html.twig', [
+        return $this->render('/author/showAuthor.html.twig', [
             'author' => $author,
-            'books' => $booksByAuth
+            'books' => $booksByAuth,
+            'intitule' => 'Auteur'
         ]);
     }
 
     /**
-     * @Route("/admin/author/add", name="add_author")
+     * @Route("/admin/author/add", name="admin_add_author")
      */
     public function addAuthor(Request $request, EntityManagerInterface $entityManager)
     {
@@ -88,15 +89,19 @@ class AuthorController extends AbstractController
                 $entityManager->flush();
 
                 // On redirige vers la page de visualisation de l'auteur nouvellement créé
-                return $this->redirectToRoute('manage_library', ['id' => $author->getId()]);
+                return $this->redirectToRoute('admin', [
+                    'message' => 'Auteur ajouté',
+                    'intitule' => null
+                ]);
             }
         }
 
         // À ce stade, le formulaire n'est pas valide car :
         // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
         // - Soit la requête est de type POST, mais le formulaire contient des valeurs invalides, donc on l'affiche de nouveau
-        return $this->render('/manage/manage_author/new.html.twig', [
-            'form' => $formView
+        return $this->render('/manage/form.html.twig', [
+            'form' => $formView,
+            'intitule' => 'Ajouter un auteur'
         ]);
     }
 
@@ -109,21 +114,23 @@ class AuthorController extends AbstractController
 
         if (count($authors) >= 1){
             //On envoit les données à la vue
-            return $this->render('showAuthorsByName.html.twig', [
+            return $this->render('/author/showAuthors.html.twig', [
                 'authors' => $authors,
                 'name' => $name,
-                'niet' => false
+                'niet' => false,
+                'intitule' => 'Recherche d\'auteurs dont le nom contient : '.$name
             ]);
         }
-        return $this->render('showAuthorsByName.html.twig', [
+        return $this->render('/author/showAuthors.html.twig', [
             'authors' => $authors,
             'name' => $name,
-            'niet' => 'Aucun auteur trouvé'
+            'niet' => 'Aucun auteur trouvé',
+            'intitule' => 'Recherche d\'auteurs dont le nom contient : '.$name
         ]);
     }
 
     /**
-     * @Route("/admin/author/delete/{id}", name="delete_author")
+     * @Route("/admin/author/delete/{id}", name="admin_delete_author")
      */
     public function deleteAuthor(EntityManagerInterface $entityManager, $id, AuthorRepository $authorRepository){
 
@@ -132,34 +139,14 @@ class AuthorController extends AbstractController
         $entityManager->remove($author);
         $entityManager->flush();
 
-        return $this->redirectToRoute('manage_library');
-    }
-
-    /**
-     * @Route("/admin/author/ajoute"), name="ajoute_author"
-     */
-
-    public function ajouteAuthor(EntityManagerInterface $entityManager){
-        $author = new Author();
-
-        $author->setName('Alex');
-        $author->setFirstName('Jobs');
-        $author->setBirthDate(new \DateTime('1965/06/09'));
-        $author->setDeathDate(new \DateTime('2016/10/03'));
-        $author->setBiography('RIP Alex');
-
-        $entityManager->persist($author);
-        $entityManager->flush();
-
-        return $this->render('showAuthor.html.twig',[
-            'id'=> $author->getId(),
-            'author' => $author,
-            'books' => null
+        return $this->redirectToRoute('admin', [
+            'message' => 'Auteur supprimé',
+            'intitule' => null
         ]);
     }
 
     /**
-     * @Route("/admin/author/update/{id}", name="update_author")
+     * @Route("/admin/author/update/{id}", name="admin_update_author")
      */
     public function updateAuthor($id, Request $request, AuthorRepository $authorRepository, EntityManagerInterface $entityManager)
     {
@@ -184,15 +171,19 @@ class AuthorController extends AbstractController
                 $entityManager->flush();
 
                 // On redirige vers la page de visualisation de l'auteur modifié
-                return $this->redirectToRoute('manage_library', ['author' => $author]);
+                return $this->redirectToRoute('admin', [
+                    'message' => 'Auteur modifié',
+                    'intitule' => null
+                ]);
             }
         }
 
         // À ce stade, le formulaire n'est pas valide car :
         // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
         // - Soit la requête est de type POST, mais le formulaire contient des valeurs invalides, donc on l'affiche de nouveau
-        return $this->render('/manage/manage_author/update.html.twig', [
-            'form' => $formView
+        return $this->render('/manage/form.html.twig', [
+            'form' => $formView,
+            'intitule' => 'Mettre à jour un auteur'
         ]);
     }
 

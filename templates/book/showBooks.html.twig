@@ -1,15 +1,6 @@
 {% extends('books.base.html.twig') %}
 
-{% block title %}
-{{ style }}
-{% endblock %}
-
-
 {% block main %}
-    <h2 style="text-align: center">
-            Livre{% if books | length > 1 %}s{% endif %}
-        du genre : {{ style }}
-    </h2>
     <section class="books">
         {% for book in books %}
             <article class="liste">
@@ -22,5 +13,5 @@
             </article>
         {% endfor %}
     </section>
-    <p style="text-align: center"><a href="{{ path('books') }}">Retour aux livres</a></p>
+   <p style="text-align: center">Filtrer par genre : <a href="{{ path('books_by_style', {'style':'bd'}) }}">BD</a> <a href="{{ path('books_by_style', {'style':'roman'}) }}">ROMANS</a> <a href="{{ path('books_by_style', {'style':'fiction'}) }}">FICTION</a></p>
 {% endblock %}

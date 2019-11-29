@@ -34,13 +34,27 @@ article{
     width:90%;
     margin:0 auto;
     display: flex;
-    justify-content: space-between;
-    flex-wrap: nowrap;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 table{
     border-collapse: collapse;
-    width:45%;
+    width:100%;
+    margin-bottom: 50px;
+}
+
+table a{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+table a:hover{
+    background-color: #4CAAAA;
 }
 
 th{
@@ -51,7 +65,7 @@ th{
 td{
     border: 1px solid black;
     text-align: center;
-    padding:5px;
+    padding:15px;
 }
 
 
@@ -181,4 +195,16 @@ article header{
     padding: 12px 20px;
     margin-bottom: 20px;
     box-sizing: border-box;
+}
+
+.alert{
+    text-align: center;
+    color:white;
+    font-weight: bold;
+    background-color: green;
+}
+
+.intitule{
+    text-align: center;
+    color : orange;
 }

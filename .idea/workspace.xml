@@ -7,10 +7,19 @@
       <change beforePath="$PROJECT_DIR$/src/Controller/AuthorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AuthorController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/BookController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BookController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ManageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ManageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/AuthorType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/AuthorType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/BookType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/BookType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/books.base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/books.base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/manage/manage_author/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/manage/manage_author/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/manage/admin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/manage/admin.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/manage/manage_author/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/manage/form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/manage/manage_author/update.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/manage/manage_book/new.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/manage/manage_book/update.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/showAuthor.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/author/showAuthor.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/showAuthors.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/author/showAuthors.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/showAuthorsByName.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/showBook.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/book/showBook.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/showBooks.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/book/showBooks.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/showBooksByStyle.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/showBooksByTitle.html.twig" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -149,20 +158,22 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/manage/manage_book" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\library\templates\book" />
+      <recent name="C:\wamp64\www\library\templates\author" />
+      <recent name="C:\wamp64\www\library\templates\manage" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\library\templates" />
+      <recent name="C:\wamp64\www\library\templates\manage" />
       <recent name="C:\wamp64\www\library\templates\manage\manage_book" />
       <recent name="C:\wamp64\www\library\templates\manage\manage_author" />
-      <recent name="C:\wamp64\www\library\templates\manage" />
-      <recent name="C:\wamp64\www\library\templates" />
       <recent name="C:\wamp64\www\library\templates\manage_book" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\library\templates\manage" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -211,7 +222,9 @@
       <workItem from="1574867535696" duration="4728000" />
       <workItem from="1574930231642" duration="2593000" />
       <workItem from="1574937692291" duration="686000" />
-      <workItem from="1574945374001" duration="376000" />
+      <workItem from="1574945374001" duration="4226000" />
+      <workItem from="1574957293530" duration="930000" />
+      <workItem from="1575016318246" duration="4042000" />
     </task>
     <servers />
   </component>
