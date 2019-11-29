@@ -6,24 +6,27 @@
 
 {% block main %}
     <section class="author">
-            <article>
+            <article class="show">
                 <header>
                 <h2>Auteur : {{ author.firstName }} {{ author.name }}</h2>
                 </header>
-                <p>Né le {{ author.birthDate |date('d-m-Y') }}</p>
+                <p>Né le {{ author.birthDate |date('d-m-Y') }}
                 {% if author.deathDate %}
-                <p>Décédé le {{ author.deathDate | date('d-m-Y') }}</p>
+                et décédé le {{ author.deathDate | date('d-m-Y') }}
                 {% endif %}
-                <p style="text-align: left">{{ author.biography }}</p>
-                <a href="{{ path('books') }}">Retour aux livres</a>
+                </p>
+                <p class="bio">{{ author.biography }}</p>
+                <a href="{{ path('books') }}" class="bouton">Retour aux livres</a>
             </article>
-            <article>
+            <article class="show">
                 <header>
                     <h2>Livres associés :</h2>
                 </header>
-                <ul>
+                <ul class="assoc">
+                    {% set i = 0 %}
                     {% for livre in books %}
-                    <li><a href="{{ path('book', {'id':livre.id}) }}">{{ livre.title }}</a></li>
+                        <a href="{{ path('book', {'id':livre.id}) }}" > <li {% if (i % 2 != 0) %}class="gris"{% endif %}>{{ livre.title }}</li></a>
+                        {% set i = i + 1 %}
                     {% endfor %}
                 </ul>
             </article>

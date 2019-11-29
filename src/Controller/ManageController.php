@@ -24,7 +24,7 @@ class ManageController extends AbstractController
         $intitule = 'Administration du site';
 
         if (!empty($request->get('message'))){
-            $intitule = $request->get('message');
+            $message = $request->get('message');
         }
 
         if (!empty($request->get('intitule'))){

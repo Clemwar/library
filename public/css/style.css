@@ -8,6 +8,30 @@ main{
 
 }
 
+.assoc{
+    margin: 20px;
+    padding: 0;
+}
+
+.assoc li{
+    list-style-type: none;
+    padding: 5px;
+}
+
+.assoc a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.assoc li:hover, .gris:hover{
+    background-color: orange;
+}
+
+.assoc a:hover{
+    color:white;
+}
+
 header a {
     text-decoration: none;
     color:white;
@@ -22,8 +46,30 @@ article{
     text-align: center;
 }
 
+.show{
+    width:45%;
+    box-sizing: border-box;
+    padding: 20px;
+    margin :10px;
+    border : 2px solid black;
+    text-align: center;
+}
+
+.bouton {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.bouton:hover{
+    background-color: orange;
+}
+
 .books{
-    width:80%;
+    width:90%;
     margin:0 auto;
     display: flex;
     justify-content: center;
@@ -42,6 +88,7 @@ table{
     border-collapse: collapse;
     width:100%;
     margin-bottom: 50px;
+    border : 2px orange solid;
 }
 
 table a{
@@ -53,25 +100,31 @@ table a{
     text-decoration: none;
 }
 
+table caption{
+    font-size: 1.3em;
+    font-weight: bold;
+    padding: 20px;
+    background-color: orange;
+    color:white;
+    text-transform: uppercase;
+}
+
 table a:hover{
-    background-color: #4CAAAA;
+    background-color: orange;
 }
 
 th{
-    border : 2px solid black;
     padding:5px;
+    border: black 1px solid;
 }
 
 td{
-    border: 1px solid black;
     text-align: center;
-    padding:15px;
+    padding:20px;
 }
 
-
-
 .author{
-    width:80%;
+    width:90%;
     margin:0 auto;
     display: flex;
     justify-content: center;
@@ -179,7 +232,7 @@ article header{
 }
 
 .add button:hover{
-    background-color: #4CAAAA;
+    background-color: orange;
 }
 
 .add select{
@@ -207,4 +260,21 @@ article header{
 .intitule{
     text-align: center;
     color : orange;
+}
+
+.grey{
+    background-color: #999999;
+    color:white;
+}
+
+.gris{
+    background-color: #999999;
+}
+
+.gris  {
+    color:white !important;
+}
+
+.bio{
+    text-align: left;
 }

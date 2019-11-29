@@ -6,7 +6,7 @@
 
 {% block main %}
     <section class="books">
-        <article>
+        <article class="show">
             <header>
                 <h2>{{ book.title }}</h2>
                 <h4>Ecrit par {{ book.author.firstName }} {{ book.author.name }}</h4>
@@ -20,7 +20,7 @@
             {% endif %}
         </article>
 
-        <article>
+        <article class="show">
             <header>
                 <h2>A propos de l'auteur</h2>
             </header>
@@ -29,7 +29,7 @@
             {% if book.author.deathDate %}
                 <p>Décédé le {{ book.author.deathDate | date('d-m-Y') }}</p>
             {% endif %}
-            <a href="{{ path('author', {'id':book.author.id}) }}">Voir l'auteur</a>
+            <a href="{{ path('author', {'id':book.author.id}) }}" class="bouton">Voir l'auteur</a>
         </article>
     </section>
 {% endblock %}
