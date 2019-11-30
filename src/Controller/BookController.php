@@ -9,6 +9,7 @@ use App\Form\BookType;
 use App\Repository\BookRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -184,6 +185,17 @@ class BookController extends AbstractController
     public function deleteBook(EntityManagerInterface $entityManager, $id, BookRepository $bookRepository){
 
         $book = $bookRepository->find($id);
+
+        //J'appelle le gestionnaire de fichier
+        $filesystem = new Filesystem();
+
+        //Je m'assure qu'une image est liée au livre
+        if ($book->getImage() !== null){
+            //Je vérifie si le fichier existe, si oui, symfony le supprime
+            if ($filesystem->exists( $imageURL = $this->getParameter('images_directory') ."/". $book->getImage())){
+                $filesystem->remove([$imageURL]);
+            }
+        }
 
         $entityManager->remove($book);
         $entityManager->flush();
