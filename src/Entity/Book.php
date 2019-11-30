@@ -40,7 +40,7 @@ class Book
 
     /**
      * One Author has many books.
-     * @ORM\ManyToOne(targetEntity="Author", inversedBy="book")
+     * @ORM\ManyToOne(targetEntity="Author", inversedBy="books")
      */
     private $author;
 

@@ -2,26 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c8a64260-c916-419d-ac51-f4506fecd5f8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/library.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/library.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/Acide_sulfurique.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/img/Acide_sulfurique.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/asterix_38.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/img/asterix_38.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/dernier_homme.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/img/dernier_homme.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/frappe_toi_coeur.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/img/frappe_toi_coeur.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/handmaid_tale.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/img/handmaid_tale.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/hommes_habitent.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/img/hommes_habitent.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/misanthrope.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/img/misanthrope.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/panther_neiges.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/img/panther_neiges.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/passe_miroir.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/img/passe_miroir.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/stupeur_tremblements.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/img/stupeur_tremblements.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/temps_du_deluge.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/img/temps_du_deluge.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ManageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ManageController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Book.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Book.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/author/showAuthors.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/author/showAuthors.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/book/showBooks.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/book/showBooks.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/books.base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/books.base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/manage/admin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/manage/admin.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,7 +220,7 @@
       <workItem from="1575031741909" duration="2397000" />
       <workItem from="1575036079811" duration="3838000" />
       <workItem from="1575107847776" duration="37000" />
-      <workItem from="1575107973132" duration="6398000" />
+      <workItem from="1575107973132" duration="6835000" />
     </task>
     <servers />
   </component>
