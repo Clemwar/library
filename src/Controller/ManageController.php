@@ -13,7 +13,6 @@ use Symfony\Component\Routing\Annotation\Route;
 class ManageController extends AbstractController
 {
 
-
     /**
      * @Route("/admin", name="admin")
      */

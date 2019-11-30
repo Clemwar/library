@@ -13,6 +13,7 @@
                 <th>biographie</th>
                 <th>birthdate</th>
                 <th>deathdate</th>
+                <th>nombres de livres</th>
                 <th colspan="3"></th>
             </tr>
             </thead>
@@ -25,6 +26,7 @@
                 <td>{{ author.biography | slice(0,25) }} [...]</td>
                 <td>{{ author.birthDate | date('d-m-Y') }}</td>
                 <td>{% if author.deathDate %}{{ author.deathDate | date('d-m-Y') }}{% endif %}</td>
+                <td>{{ author.books | length }}</td>
                 <td><a href="{{ path('admin_update_author', {'id':author.id}) }}">Modifier</a></td>
                 <td><a href="{{ path('admin_delete_author', {'id':author.id}) }}">Suppr.</a></td>
                 <td><a href="{{ path('author', {'id':author.id}) }}">Voir</a></td>
@@ -32,7 +34,7 @@
                 {% set i = i + 1 %}
             {% endfor %}
             <tr>
-                <td  colspan="8"><a href="{{ path('admin_add_author') }}">Ajouter un auteur</a></td>
+                <td  colspan="9"><a href="{{ path('admin_add_author') }}">Ajouter un auteur</a></td>
             </tr>
             </tbody>
         </table>
@@ -56,8 +58,8 @@
                     <td><strong>{{ book.title }}</strong></td>
                     <td>{{ book.style }}</td>
                     <td>{{ book.nbPages }}</td>
-                    <td>{% if book.inStock %}oui{% else %}non{% endif %}</td>
-                    <td>{{ book.image }}</td>
+                    {% if book.inStock %}<td class="OK">oui{% else %}<td class="NO">non{% endif %}</td>
+                    <td><a href="{{ asset('assets/img/'~ book.image ~'.jpg') }}" target="_blank" class="thumb"><img src="{{ asset('assets/img/'~ book.image ~'.jpg') }}" class="fluid" alt=""></a></td>
                     <td><a href="{{ path('admin_update_book', {'id':book.id}) }}">Modifier</a></td>
                     <td><a href="{{ path('admin_delete_book', {'id':book.id}) }}">Suppr.</a></td>
                     <td><a href="{{ path('book', {'id':book.id}) }}">Voir</a></td>

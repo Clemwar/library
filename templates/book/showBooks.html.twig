@@ -1,16 +1,20 @@
 {% extends('books.base.html.twig') %}
 
 {% block main %}
-    <section class="books">
+    <section class="books" xmlns="http://www.w3.org/1999/html">
         {% for book in books %}
-            <article class="liste">
-                <div class="content">
-                <header>
-                <h2>{{ book.title }}</h2>
-                <h4>Ecrit par {{ book.author.firstName }} {{ book.author.name }}</h4>
-                <a href="{{ path('book', {'id':book.id}) }}" class="lien2">En savoir plus</a>
-                </div>
-            </article>
+            <a href="{{ path('book', {'id':book.id}) }}" class="lienShowBooks">
+                <article class="liste">
+                    <header>
+                        <h2>{{ book.title | slice (0, 23) }}{% if book.title | length > 23 %}...{% endif %}</h2>
+                        <h4>Ecrit par {{ book.author.firstName }} {{ book.author.name }}</h4>
+                    </header>
+                    <div class="view">
+                        <img src="{{ asset('assets/img/'~ book.image ~'.jpg') }}" class="fluid" alt="">
+                    </div>
+                    <p>En savoir plus</p>
+                </article>
+            </a>
         {% endfor %}
     </section>
    <p style="text-align: center">Filtrer par genre : <a href="{{ path('books_by_style', {'style':'bd'}) }}">BD</a> <a href="{{ path('books_by_style', {'style':'roman'}) }}">ROMANS</a> <a href="{{ path('books_by_style', {'style':'fiction'}) }}">FICTION</a></p>

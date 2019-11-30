@@ -7,13 +7,14 @@
 {% block main %}
     <section class="books">
         {% for author in authors %}
-            <article class="liste">
-                <div class="content">
-                <header>
-                <h2> {{ author.firstName }} {{ author.name }}</h2>
-                <a href="{{ path('author', {'id':author.id}) }}">En savoir plus</a>
-                </div>
-            </article>
+            <a href="{{ path('author', {'id':author.id}) }}" class="lienShow">
+                <article class="liste">
+                    <header>
+                    <h2> {{ author.firstName }} {{ author.name }}</h2>
+                    <p>En savoir plus</p>
+                    </header>
+                </article>
+            </a>
         {% endfor %}
     </section>
 {% endblock %}

@@ -60,7 +60,7 @@ class Book
     }
 
 
-    public function setAuthor($author): void
+    public function setAuthor($author)
     {
         $this->author = $author;
     }
@@ -130,7 +130,7 @@ class Book
     /**
      * @param mixed $image
      */
-    public function setImage($image): void
+    public function setImage($image)
     {
         $this->image = $image;
     }
