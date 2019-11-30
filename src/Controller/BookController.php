@@ -9,6 +9,9 @@ use App\Form\BookType;
 use App\Repository\BookRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -66,12 +69,14 @@ class BookController extends AbstractController
     public function addBook(Request $request, EntityManagerInterface $entityManager)
     {
         $book = new Book();
+        $message = 'Livre ajouté';
 
         // On crée le FormBuilder en appelant le formtype
         $form = $this->createForm(BookType::class, $book);
 
         //On crée la vue
         $formView = $form->createView();
+
 
         // Si la requête est en POST
         if ($request->isMethod('POST')) {
@@ -81,13 +86,39 @@ class BookController extends AbstractController
 
             // On vérifie que les valeurs entrées sont correctes
             if ($form->isValid()) {
+
+                //On traite l'ajout d'image
+                /** @var UploadedFile $image */
+                $image = $form['image']->getData();
+
+                // On vérifie la présence d'un fichier uploadé
+                if ($image) {
+                    $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
+                    // this is needed to safely include the file name as part of the URL
+                    $safeFilename = transliterator_transliterate('Any-Latin; Latin-ASCII; [^A-Za-z0-9_] remove; Lower()', $originalFilename);
+                    $newFilename = $safeFilename . '-' . uniqid() . '.' . $image->guessExtension();
+
+                    //On place le fichier dans le dossier prévu sur le serveur
+                    try {
+                        $image->move(
+                            $this->getParameter('images_directory'),
+                            $newFilename
+                        );
+                    } catch (FileException $e) {
+                        $message = 'La mise en ligne de l\'image a échoué';
+                    }
+
+                    // On ajoute le nom de l'image au livre concerné
+                    $book->setImage($newFilename);
+                }
+
                 // On enregistre notre objet $author dans la base de données, par exemple
                 $entityManager->persist($book);
                 $entityManager->flush();
 
                 // On redirige vers la page de visualisation du livre nouvellement créé
                 return $this->redirectToRoute('admin', [
-                    'message' => 'Livre ajouté',
+                    'message' => $message,
                     'intitule' => null
                 ]);
             }
@@ -184,6 +215,31 @@ class BookController extends AbstractController
 
             // On vérifie que les valeurs entrées sont correctes
             if ($form->isValid()) {
+
+                //On traite l'ajout d'image
+                /** @var UploadedFile $image */
+                $image = $form['image']->getData();
+
+                // On vérifie la présence d'un fichier uploadé
+                if ($image) {
+                    $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
+                    // this is needed to safely include the file name as part of the URL
+                    $safeFilename = transliterator_transliterate('Any-Latin; Latin-ASCII; [^A-Za-z0-9_] remove; Lower()', $originalFilename);
+                    $newFilename = $safeFilename . '-' . uniqid() . '.' . $image->guessExtension();
+
+                    //On place le fichier dans le dossier prévu sur le serveur
+                    try {
+                        $image->move(
+                            $this->getParameter('images_directory'),
+                            $newFilename
+                        );
+                    } catch (FileException $e) {
+                        $message = 'La mise en ligne de l\'image a échoué';
+                    }
+
+                    // On ajoute le nom de l'image au livre concerné
+                    $book->setImage($newFilename);
+                }
 
                 $entityManager->flush();
 

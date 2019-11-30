@@ -59,7 +59,7 @@
                     <td>{{ book.style }}</td>
                     <td>{{ book.nbPages }}</td>
                     {% if book.inStock %}<td class="OK">oui{% else %}<td class="NO">non{% endif %}</td>
-                    <td><a href="{{ asset('assets/img/'~ book.image ~'.jpg') }}" target="_blank" class="thumb"><img src="{{ asset('assets/img/'~ book.image ~'.jpg') }}" class="fluid" alt=""></a></td>
+                    <td><a href="{{ asset('assets/img/'~ book.image) }}" target="_blank" class="thumb"><img src="{{ asset('assets/img/'~ book.image) }}" class="fluid" alt=""></a></td>
                     <td><a href="{{ path('admin_update_book', {'id':book.id}) }}">Modifier</a></td>
                     <td><a href="{{ path('admin_delete_book', {'id':book.id}) }}">Suppr.</a></td>
                     <td><a href="{{ path('book', {'id':book.id}) }}">Voir</a></td>

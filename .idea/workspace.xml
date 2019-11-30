@@ -3,7 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="c8a64260-c916-419d-ac51-f4506fecd5f8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/handmaid_tale.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/BookController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BookController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Book.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Book.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/BookType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/BookType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/book/showBooks.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/book/showBooks.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/manage/admin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/manage/admin.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -220,7 +228,7 @@
       <workItem from="1575031741909" duration="2397000" />
       <workItem from="1575036079811" duration="3838000" />
       <workItem from="1575107847776" duration="37000" />
-      <workItem from="1575107973132" duration="6835000" />
+      <workItem from="1575107973132" duration="12711000" />
     </task>
     <servers />
   </component>
@@ -245,6 +253,10 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="734" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1040@0.0.2560.1040" timestamp="1575108141711" />
+    <state x="1010" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1575119098956">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="1010" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.2560.1040@0.0.2560.1040" timestamp="1575119098956" />
     <state x="981" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1575107975607">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>

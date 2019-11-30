@@ -7,11 +7,13 @@ use App\Entity\Book;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\File;
 
 class BookType extends AbstractType
 {
@@ -36,12 +38,21 @@ class BookType extends AbstractType
                 'choice_label' => 'name',
                 'label' => 'Auteur'
             ])
-            ->add('image', TextType::class, [
-                'label' => 'Nom de l\'image',
-                'required'=>false
+            ->add('image', FileType::class, [
+                'label' => 'Image (JPG file)',
+                'mapped' => false,
+                'required' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '1024k',
+                        'mimeTypes' => [
+                            'image/jpeg',
+                        ],
+                        'mimeTypesMessage' => 'Merci de n\'envoyer que des jpeg'
+                    ])
+                ],
             ])
-            ->add('Enregistrer', SubmitType::class)
-        ;
+            ->add('Enregistrer', SubmitType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver)

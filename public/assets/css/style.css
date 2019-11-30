@@ -290,7 +290,7 @@ td{
     box-sizing: border-box;
 }
 
-.add input[type=checkbox]{
+.add input[type=checkbox], .add input[type=file]{
     padding: 12px 20px;
     margin-bottom: 20px;
     box-sizing: border-box;
