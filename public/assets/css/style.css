@@ -90,6 +90,14 @@ article h2, article h4, article h5{
     margin : 5px;
 }
 
+article h2{
+    font-size: 1em;
+}
+
+article h4{
+    font-size: 0.6em;
+}
+
 article header{
     background-color:slategrey;
     color:white;
