@@ -1,0 +1,45 @@
+{% extends ('books.base.html.twig') %}
+
+
+{% block main %}
+    <section class="add">
+        {{ form_start(form) }}
+
+        {{ form_label(form.title) }}
+        <div class="formError">
+            {{ form_errors(form.title) }}
+        </div>
+        {{ form_widget(form.title) }}
+
+        {{ form_label(form.nbPages) }}
+        <div class="formError">
+            {{ form_errors(form.nbPages) }}
+        </div>
+        {{ form_widget(form.nbPages) }}
+
+        {{ form_label(form.style) }}
+        <div class="formError">
+            {{ form_errors(form.style) }}
+        </div>
+        {{ form_widget(form.style) }}
+
+        {{ form_row(form.inStock) }}
+
+        {{ form_label(form.author) }}
+        <div class="formError">
+            {{ form_errors(form.author) }}
+        </div>
+        {{ form_widget(form.author) }}
+
+        {{ form_label(form.image) }}
+        <div class="formError">
+            {{ form_errors(form.image) }}
+        </div>
+        {{ form_widget(form.image) }}
+
+        {{ form_label(form.Enregistrer) }}
+        {{ form_widget(form.Enregistrer) }}
+
+        {{ form_end(form) }}
+    </section>
+{% endblock %}

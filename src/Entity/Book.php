@@ -3,8 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\ORM\Mapping\JoinColumn;
-
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BookRepository")
@@ -20,6 +19,14 @@ class Book
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(
+     *      min = 1,
+     *      max = 255,
+     *      minMessage = "Your title must be at least {{ limit }} characters long",
+     *      maxMessage = "Your title name cannot be longer than {{ limit }} characters"
+     * )
+     *
+     * @Assert\NotNull(message="Merci d'ajouter un titre")
      */
     private $title;
 
@@ -30,6 +37,7 @@ class Book
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Length(max=255, maxMessage="le genre doit faire 255 caractères maximum")
      */
     private $style;
 
@@ -49,10 +57,7 @@ class Book
      */
     private $image;
 
-    public function __construct()
-    {
 
-    }
 
     public function getAuthor()
     {
@@ -71,12 +76,12 @@ class Book
         return $this->id;
     }
 
-    public function getTitle(): ?string
+    public function getTitle()
     {
         return $this->title;
     }
 
-    public function setTitle(string $title): self
+    public function setTitle(string $title)
     {
         $this->title = $title;
 

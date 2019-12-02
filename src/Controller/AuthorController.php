@@ -67,9 +67,6 @@ class AuthorController extends AbstractController
         // On crée le FormBuilder en appelant le formtype
         $form = $this->createForm(AuthorType::class, $author);
 
-        //On crée la vue
-        $formView = $form->createView();
-
         // Si la requête est en POST
         if ($request->isMethod('POST')) {
             // On fait le lien Requête <-> Formulaire
@@ -90,10 +87,13 @@ class AuthorController extends AbstractController
             }
         }
 
+        //On crée la vue
+        $formView = $form->createView();
+
         // À ce stade, le formulaire n'est pas valide car :
         // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
         // - Soit la requête est de type POST, mais le formulaire contient des valeurs invalides, donc on l'affiche de nouveau
-        return $this->render('/manage/form.html.twig', [
+        return $this->render('author/form.html.twig', [
             'form' => $formView,
             'intitule' => 'Ajouter un auteur'
         ]);
@@ -150,9 +150,6 @@ class AuthorController extends AbstractController
         // On crée le FormBuilder en appelant le formtype
         $form = $this->createForm(AuthorType::class, $author);
 
-        //On crée la vue
-        $formView = $form->createView();
-
         // Si la requête est en POST
         if ($request->isMethod('POST')) {
             // On fait le lien Requête <-> Formulaire
@@ -172,10 +169,13 @@ class AuthorController extends AbstractController
             }
         }
 
+        //On crée la vue
+        $formView = $form->createView();
+
         // À ce stade, le formulaire n'est pas valide car :
         // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
         // - Soit la requête est de type POST, mais le formulaire contient des valeurs invalides, donc on l'affiche de nouveau
-        return $this->render('/manage/form.html.twig', [
+        return $this->render('author/form.html.twig', [
             'form' => $formView,
             'intitule' => 'Mettre à jour un auteur'
         ]);

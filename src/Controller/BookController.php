@@ -4,6 +4,7 @@
 namespace App\Controller;
 
 
+use App\Entity\Author;
 use App\Entity\Book;
 use App\Form\BookType;
 use App\Repository\BookRepository;
@@ -75,9 +76,6 @@ class BookController extends AbstractController
         // On crée le FormBuilder en appelant le formtype
         $form = $this->createForm(BookType::class, $book);
 
-        //On crée la vue
-        $formView = $form->createView();
-
 
         // Si la requête est en POST
         if ($request->isMethod('POST')) {
@@ -117,18 +115,22 @@ class BookController extends AbstractController
                 $entityManager->persist($book);
                 $entityManager->flush();
 
+
                 // On redirige vers la page de visualisation du livre nouvellement créé
-                return $this->redirectToRoute('admin', [
+                    return $this->redirectToRoute('admin', [
                     'message' => $message,
                     'intitule' => null
                 ]);
             }
         }
 
+        //On crée la vue
+        $formView = $form->createView();
+
         // À ce stade, le formulaire n'est pas valide car :
         // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
         // - Soit la requête est de type POST, mais le formulaire contient des valeurs invalides, donc on l'affiche de nouveau
-        return $this->render('/manage/form.html.twig', [
+        return $this->render('book/form.html.twig', [
             'form' => $formView,
             'intitule' => 'Ajouter un livre'
         ]);
@@ -266,7 +268,7 @@ class BookController extends AbstractController
         // À ce stade, le formulaire n'est pas valide car :
         // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
         // - Soit la requête est de type POST, mais le formulaire contient des valeurs invalides, donc on l'affiche de nouveau
-        return $this->render('/manage/form.html.twig', [
+        return $this->render('book/form.html.twig', [
             'form' => $formView,
             'intitule' => 'Mettre à jour un livre'
         ]);

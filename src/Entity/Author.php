@@ -2,9 +2,11 @@
 
 namespace App\Entity;
 
+use App\Repository\AuthorRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AuthorRepository")
  */
@@ -19,6 +21,8 @@ class Author
 
     /**
      * @ORM\Column(type="string", length=255)
+     *
+     * @Assert\Length(min=2, max=100, minMessage="pas assez", maxMessage="trop")
      */
     private $name;
 
@@ -57,12 +61,12 @@ class Author
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getName()
     {
         return $this->name;
     }
 
-    public function setName(string $name): self
+    public function setName($name)
     {
         $this->name = $name;
 
@@ -124,6 +128,5 @@ class Author
     {
         return $this->books;
     }
-
 
 }

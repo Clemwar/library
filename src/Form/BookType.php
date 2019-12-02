@@ -35,7 +35,8 @@ class BookType extends AbstractType
             ])
             ->add('author', EntityType::class, [
                 'class'   => Author::class,
-                'choice_label' => 'name',
+                'choice_label'=>function (Author $author) {
+                    return $author->getFirstname() . ' ' . $author->getName();},
                 'label' => 'Auteur'
             ])
             ->add('image', FileType::class, [
@@ -48,7 +49,7 @@ class BookType extends AbstractType
                         'mimeTypes' => [
                             'image/jpeg',
                         ],
-                        'mimeTypesMessage' => 'Merci de n\'envoyer que des jpeg'
+                        'mimeTypesMessage' => 'Merci de n\'envoyer que des jpeg de moins d\'1Mo'
                     ])
                 ],
             ])

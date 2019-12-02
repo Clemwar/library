@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c8a64260-c916-419d-ac51-f4506fecd5f8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/library.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/library.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/book/form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img - Copie/handmaid_tale-5de26ef124b8d.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AuthorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AuthorController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/BookController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BookController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Author.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Author.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Book.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Book.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/BookType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/BookType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/manage/form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/author/form.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -149,23 +155,23 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/author" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\library\public\assets" />
-      <recent name="C:\wamp64\www\library\templates\book" />
-      <recent name="C:\wamp64\www\library\templates\author" />
-      <recent name="C:\wamp64\www\library\templates\manage" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\library\templates\author" />
       <recent name="C:\wamp64\www\library\templates" />
       <recent name="C:\wamp64\www\library\templates\manage" />
       <recent name="C:\wamp64\www\library\templates\manage\manage_book" />
       <recent name="C:\wamp64\www\library\templates\manage\manage_author" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\library\templates\book" />
+      <recent name="C:\wamp64\www\library\public\assets" />
+      <recent name="C:\wamp64\www\library\templates\author" />
+      <recent name="C:\wamp64\www\library\templates\manage" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -226,6 +232,9 @@
       <workItem from="1575122047446" duration="1898000" />
       <workItem from="1575129686109" duration="1565000" />
       <workItem from="1575226476040" duration="230000" />
+      <workItem from="1575276599789" duration="5347000" />
+      <workItem from="1575282749596" duration="3690000" />
+      <workItem from="1575290493757" duration="4077000" />
     </task>
     <servers />
   </component>
