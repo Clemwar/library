@@ -23,14 +23,19 @@
             <a href="{{ path('authors') }}">
                 <li>Auteurs</li>
             </a>
-            <a href="{{ path('admin') }}">
-                <li>Gérer bibliothèque</li>
-            </a>
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                   {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} | <a href="{{ path('admin') }}">Admin</a>
+                    <a href="{{ path('fos_user_security_logout') }}">
+                        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                    </a>
+                {% else %}
+                    <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                {% endif %}
         </ul>
     </nav>
 </header>
 <main>
-    {% if intitule %} <h1 class="intitule">{{ intitule }}</h1> {% endif %}
+    {% if intitule is defined %} <h1 class="intitule">{{ intitule }}</h1> {% endif %}
     {% block main %}
     {% endblock %}
 </main>

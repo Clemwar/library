@@ -23,6 +23,7 @@ header{
     display: flex;
     justify-content: space-around;
     align-items: center;
+    color:white;
 }
 
 nav ul {
@@ -334,7 +335,7 @@ td{
 }
 
 .formError li{
-    color:red;
+    color:white;
     list-style-type: none;
 }
 
