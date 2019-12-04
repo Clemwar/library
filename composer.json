@@ -28,7 +28,7 @@
         "symfony/validator": "4.4.*",
         "symfony/web-link": "4.4.*",
         "symfony/yaml": "4.4.*",
-        "twig/twig": "2.12"
+        "twig/twig": "2.12.2"
     },
     "require-dev": {
         "symfony/debug-pack": "*",
