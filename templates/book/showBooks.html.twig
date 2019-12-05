@@ -2,6 +2,7 @@
 
 {% block main %}
     <section class="books" xmlns="http://www.w3.org/1999/html">
+        {% if books | length == 0 %} <p>Aucun livre trouvé.</p> {% endif %}
         {% for book in books %}
             <a href="{{ path('book', {'id':book.id}) }}" class="lienShowBooks">
                 <article class="liste">

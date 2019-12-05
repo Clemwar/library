@@ -292,7 +292,7 @@ td{
     margin-right : 20px;
 }
 
-.add input[type=text], .add input[type=number] {
+.add input[type=text], .add input[type=number], .add input[type=password], .add input[type=email] {
     width: 100%;
     padding: 12px 20px;
     margin-bottom: 20px;

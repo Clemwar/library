@@ -153,30 +153,16 @@ class BookController extends AbstractController
      * @Route("book/search", name="search_by_title")
      */
     public function getBookByTitle(Request $request, BookRepository $bookRepository){
+        //Récupération des infos passées dans la requête
         $title = $request->get('title');
+
+        //Appel en base de données via le Repository
         $books = $bookRepository->getByTitle($title);
 
-        if (count($books)>1)
-        {
-            $intitule = 'Les livres dont les titres contiennent : ' . $title;
-        }
-        else
-            {
-            $intitule = 'Le livre dont le titre contient : ' . $title;
-            }
-
-        if (count($books) >= 1) {
-            return $this->render('/book/showBooks.html.twig', [
-                'books' => $books,
-                'title' => $title,
-                'niet' => false,
-                'intitule' => $intitule
-            ]);
-        }
+        //Envoi des infos au TWIG pour un rendu
         return $this->render('/book/showBooks.html.twig', [
             'books' => $books,
             'title' => $title,
-            'niet' => 'Aucun livre trouvé.',
             'intitule' => 'Les livres dont les titres contiennent : '.$title
         ]);
     }
